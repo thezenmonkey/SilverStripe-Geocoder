@@ -3,13 +3,12 @@
 class Geocoder {
 	
 	public function Geocode($address) {
-		global $_GOOGLE_API;
 		//CODE FROM GOOGLE
 		//---------------------------------------------------------
 		
 		// Initialize delay in geocode speed
 		$delay = 0;
-		$base_url = "http://maps.google.com/maps/geo?output=xml" . "&key=" . KEY;
+		$base_url = "http://maps.google.com/maps/geo?output=xml";
 		
 		
 		
@@ -17,7 +16,6 @@ class Geocoder {
 		$geocode_pending = true;
 		
 		while ($geocode_pending) {
-			//$address = $this->Address." ".$this->City()->Title." Ontario ".$this->PostalCode;
 			$request_url = $base_url . "&q=" . urlencode($address);
 			$xml = simplexml_load_file($request_url);					
 			
